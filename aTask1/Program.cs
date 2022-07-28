@@ -2,13 +2,27 @@
 int M = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите N: ");
 int N = Convert.ToInt32(Console.ReadLine());
+Console.Write("\n");
+int temp = M;
 
-
-for (int i = 0; i < N; i++)
+if (M > N) 
 {
-    if (M < N)
-    Console.Write((M++) + ", ");
-    else
-    Console.Write((M++) + ". ");
+  M = N; 
+  N = temp;
 }
-Console.WriteLine();
+
+PrintSum (M, N, temp = 0);
+
+void PrintSum (int m, int n, int sum)
+{
+  sum = sum + n;
+  if (n <= m)
+  {
+    Console.Write($"Сумма элементов= {sum} ");
+    Console.WriteLine();
+    return;
+  }
+  PrintSum(m, n - 1, sum);
+}
+
+
